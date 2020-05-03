@@ -25,7 +25,7 @@ var (
 	// Search flags
 	searchFlag  = app.Command("search", "Search within files")
 	searchPaths = searchFlag.Arg("filePath", "Path to the directories you want to search through").Strings()
-	searchText  = searchFlag.Flag("find", "Text you want to find").Short('f').Short('s').Required().String()
+	searchText  = searchFlag.Flag("find", "Text you want to find").Short('s').Required().String()
 
 	// Replace flags TODO
 	replaceFlag = app.Command("replace", "Replace within files")

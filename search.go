@@ -23,12 +23,12 @@ func Search() {
 			// Read current file
 			fileData, err := ioutil.ReadFile(subPath)
 			if err != nil {
+				fmt.Println(err.Error())
 				return err
 			}
 			fileText := string(fileData)
 
-			// Split fileText into lines and remove weird windows endings
-			//fileText = strings.ReplaceAll(fileText, "\r\n", "\n")
+			// Split fileText into lines
 			lines := strings.Split(fileText, "\n")
 
 			// Iterate through all lines
