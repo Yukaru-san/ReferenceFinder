@@ -27,8 +27,12 @@ replace (TODO)
 flags
 ```
 -h              prints the help msg
+
 -f              files to ignore when searching
 -d              directories to ignore when searching (only useful with search-sub)
 
 --search-sub    Search through sub directories
 ```
+
+Note that you can ignore multiple files / directories by seperating their names using a comma<br>
+``` -f "file1,  file2, .exe, .bat" ```
