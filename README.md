@@ -1,5 +1,6 @@
 # ReferenceFinder
-Search for Strings across multiple files and directories
+Ever got tired of trying to figure out where to find a variable or function in a project or library?<br>
+This tool's got your back.<br>
 
 # Useage
 ``` referenceFinder <command> [path1] [path2] [...] [<flags>]```
