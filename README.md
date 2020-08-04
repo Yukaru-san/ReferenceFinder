@@ -1,5 +1,5 @@
-# ReferenceFinder
-Ever got tired of trying to figure out where to find a variable or function in a project or library?<br>
+```referenceFinder search "C:\myPath" --find "func main --search-sub```
+The above example will show you every file and their respective lines containing the go-typical main function.<br>
 This tool's got your back.<br>
 
 # Useage

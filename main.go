@@ -24,11 +24,13 @@ var (
 
 	// Search flags
 	searchFlag  = app.Command("search", "Search within files")
-	searchPaths = searchFlag.Arg("filePath", "Path to the directories you want to search through").Strings()
-	searchText  = searchFlag.Flag("find", "Text you want to find").Short('s').Required().String()
+	searchText  = searchFlag.Arg("find", "Text you want to find").String()
+	searchPaths = searchFlag.Flag("path", "Path to the directories you want to search through").Short('p').Required().Strings()
 
 	// Replace flags TODO
-	replaceFlag = app.Command("replace", "Replace within files")
+	replaceFlag   = app.Command("replace", "Takes 2 inputs <search> <replace>")
+	replaceInputs = replaceFlag.Arg("replace <oldText> <newText>", "Replacement input").Strings()
+	replacePaths  = replaceFlag.Flag("path", "Path to the directories you want to search through").Short('p').Required().Strings()
 
 	// Search variables
 	excludedFiles []string
@@ -56,13 +58,8 @@ func main() {
 	case "search":
 		Search()
 	case "replace":
-		Replace()
+		Replace(*replaceInputs)
 	}
-
-}
-
-// Replace replaces file contents within given paths for the given values
-func Replace() {
 
 }
 
@@ -84,6 +81,7 @@ func IsIgnored(basePath string, subPath string, info os.FileInfo) bool {
 			return true
 		}
 	}
+
 	// Ignored directory?
 	for i := 0; i < len(excludedDirs); i++ {
 		if strings.Contains(p, excludedDirs[i]) {
